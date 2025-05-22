@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    height: 100vh;
+    width: 100vw;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width: 20rem;
+    height: 5rem;
+    border-radius: 5rem;
+    background-color: tomato;
+    cursor: pointer;
+}
