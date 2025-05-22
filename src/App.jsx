@@ -1,19 +1,27 @@
-import { useState,useEffect, use } from 'react';
-import './src/components/App.css';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
+import './App.css';
+
 
 
 export default function App() {
 
-  const [valor, mudarValor] = useState(true);
+  const [count, setCount] = useState(0);
 
-  function alterarValor() {
-    mudarValor(!valor);
+  useEffect(() =>{
+    const timeout = setTimeout(() => {console.log("Executou dps de 2 segundos")}, 2000);
+
+    return () => {}
+    clearTimeout(timeout);
+  },[count]);
+
+  function counter() {
+    setCount(count + 1);
   }
 
   return (
-    <div style={{ backgroundColor: valor ? 'blue' : 'red' }}>
-    <button style={{ backgroundColor: valor ? 'blue' : 'red' }} onClick={alterarValor}>CLIQUE!</button>
+    <div>
+      <span>{count}</span>
+      <button onClick={counter}>COUNTER</button>
     </div>
-  )
-};
+  );
+}
