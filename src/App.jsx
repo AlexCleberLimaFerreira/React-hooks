@@ -1,23 +1,28 @@
-import { use, useState } from 'react';
-import Contador from './components/contador/Contador';
+import { useState,useEffect, use } from 'react';
+
 
 export default function App() {
 
-  // const [nome] = useState("Alexandre");
-  // const [situacao, setSituacao] = useState(true);
+  const [mensagem1, mudarMensagem1] = useState('Hello World!');  // Estado inicial da mensagem1 é "Hello World!"
+  const [mensagem2, mudarMensagem2] = useState('Hello World!');
 
-  // function mudarSituacao() {
-  //   setSituacao(!situacao);
-  // }
-
+  useEffect(() => {
+    console.log('Executando na renderização');
+  },[mensagem1,mensagem2]); // O useEffect é chamado sempre que a mensagem1 ou mensagem2 muda no butão
 
 
   return (
     <>
-    <Contador/>
-    {/* <h2>Nome:{nome}</h2>
-    <h2>Situação:{situacao ? 'Ativo' : 'Inativo'}</h2>
-      <button onClick={mudarSituacao}>Mudar Situação</button> */}
+      <h1>{mensagem1}</h1>
+      <button onClick={() => {
+        mudarMensagem1('Olá Mundo1!');
+      }}>Mudar Idioma</button>
+
+
+      <h1>{mensagem2}</h1>
+      <button onClick={() => {
+        mudarMensagem2('Olá Mundo2!');
+      }}>Mudar Idioma</button>
     </>
   )
 }
